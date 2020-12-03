@@ -17,5 +17,5 @@ public interface AppDao {
     Cursor get();
 
     @Insert
-    void insert(DevicePin pin);
+    void insert(com.example.myprovider.data.DevicePin pin);
 }

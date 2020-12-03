@@ -10,11 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProvider">
         <provider
-            android:name=".SampleContentProvider"
-            android:authorities="com.example.myprovider.provider.pinprovider"
-            android:enabled="true"
+            android:name=".provider.SampleContentProvider"
+            android:authorities="com.example.myprovider.provider"
             android:exported="true"
-            android:multiprocess="true"
             />
         <activity android:name=".MainActivity">
             <intent-filter>

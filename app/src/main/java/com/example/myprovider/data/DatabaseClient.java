@@ -2,7 +2,6 @@ package com.example.myprovider.data;
 
 
 import android.content.Context;
-
 import androidx.room.Room;
 
 /*
@@ -21,7 +20,7 @@ public class DatabaseClient {
 
         //creating the app database with Room database builder
         //third parameter "String" is the name of the database
-        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "pindb").build();
+        appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "pin-db").build();
     }
 
     public static synchronized DatabaseClient getInstance(Context mCtx) {

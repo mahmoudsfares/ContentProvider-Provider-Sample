@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.myprovider.data.AppDatabase;
 import com.example.myprovider.data.DatabaseClient;
 import com.example.myprovider.data.DevicePin;
+import com.example.myprovider.data.PinProviderContract;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,12 +61,14 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
+    /*
+    get data required by the getter app to make sure that there's no problem with the Uri.
+     */
     private void getFromDatabase(){
         new Thread(() -> {
-            //adding to database
             AppDatabase db = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase();
             if(db != null){
-                Cursor c = getContentResolver().query(Uri.parse("content://com.example.myprovider.provider.pinprovider/device-pin"), null, null, null, null);
+                Cursor c = getContentResolver().query(PinProviderContract.CONTENT_URI, null, null, null, null);
                 if(c.moveToNext()){
                     setUi(c.getString(1));
                     c.close();
