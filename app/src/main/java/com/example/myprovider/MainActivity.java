@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv = findViewById(R.id.textView);
-        et = findViewById(R.id.passwordEt);
-
-        getFromDatabase();
     }
 
     public void showAlertDialog(View v){
@@ -59,25 +56,5 @@ public class MainActivity extends AppCompatActivity {
                     .appDao()
                     .insert(p);
         }).start();
-    }
-
-    /*
-    get data required by the getter app to make sure that there's no problem with the Uri.
-     */
-    private void getFromDatabase(){
-        new Thread(() -> {
-            AppDatabase db = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase();
-            if(db != null){
-                Cursor c = getContentResolver().query(PinProviderContract.CONTENT_URI, null, null, null, null);
-                if(c.moveToNext()){
-                    setUi(c.getString(1));
-                    c.close();
-                }
-            }
-        }).start();
-    }
-
-    private void setUi(String s){
-        tv.setText(s);
     }
 }
