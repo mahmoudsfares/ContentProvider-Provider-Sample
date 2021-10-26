@@ -12,19 +12,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="showAlertDialog"
-        android:text="Continue"
-        app:layout_constraintEnd_toEndOf="@+id/passwordEt"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="@+id/pinEt"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/passwordEt"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEt" />
+        app:layout_constraintStart_toStartOf="@+id/pinEt"
+        app:layout_constraintTop_toBottomOf="@+id/pinEt" />
 
     <EditText
-        android:id="@+id/passwordEt"
+        android:id="@+id/pinEt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="150dp"
         android:ems="10"
-        android:inputType="textPassword"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="Enter admin password"
-        app:layout_constraintBottom_toTopOf="@+id/passwordEt"
+        android:text="Insert device code"
+        app:layout_constraintBottom_toTopOf="@+id/pinEt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />

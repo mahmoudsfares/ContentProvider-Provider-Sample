@@ -12,8 +12,6 @@ import com.example.myprovider.data.PinProviderContract;
 
 public class SampleContentProvider extends ContentProvider {
 
-    public SampleContentProvider() { }
-
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static { sURIMatcher.addURI(PinProviderContract.AUTHORITY, PinProviderContract.PATH, 10); }
 

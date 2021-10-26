@@ -1,4 +1,4 @@
-package com.example.myprovider.data;
+package com.example.myprovider.models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

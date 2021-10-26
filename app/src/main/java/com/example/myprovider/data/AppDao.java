@@ -6,6 +6,8 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.myprovider.models.DevicePin;
+
 
 /*
 This class is for CRUD operations
@@ -17,5 +19,5 @@ public interface AppDao {
     Cursor get();
 
     @Insert
-    void insert(com.example.myprovider.data.DevicePin pin);
+    void insert(DevicePin pin);
 }
