@@ -1,12 +1,18 @@
 package com.example.myprovider;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.example.myprovider.data.DatabaseClient;
 import com.example.myprovider.models.DevicePin;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,18 +26,27 @@ public class MainActivity extends AppCompatActivity {
         et = findViewById(R.id.pinEt);
     }
 
-    public void showAlertDialog(View v){
-        if(et.getText().toString().isEmpty()){
+    public void showAlertDialog(View v) {
+        if (et.getText().toString().isEmpty()) {
             Toast.makeText(this, "Pin can't be empty", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             DevicePin p = new DevicePin(et.getText().toString());
-            new Thread(() -> {
-                //adding to database
+            addPinToDatabase(p);
+        }
+    }
+
+    private void addPinToDatabase(DevicePin p) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            try {
                 DatabaseClient.getInstance(getApplicationContext()).getAppDatabase()
                         .appDao()
                         .insert(p);
-            }).start();
-        }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                executor.shutdown();
+            }
+        });
     }
 }

@@ -9,16 +9,10 @@ This class creates DB object instance, because it's an expensive procedure.
  */
 public class DatabaseClient {
 
-    private Context mCtx;
     private static DatabaseClient mInstance;
-
-    //our app database object
-    private AppDatabase appDatabase;
+    private final AppDatabase appDatabase;
 
     private DatabaseClient(Context mCtx) {
-        this.mCtx = mCtx;
-
-        //creating the app database with Room database builder
         //third parameter "String" is the name of the database
         appDatabase = Room.databaseBuilder(mCtx, AppDatabase.class, "pin-db").build();
     }

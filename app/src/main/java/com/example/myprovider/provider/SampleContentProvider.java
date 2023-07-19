@@ -12,8 +12,10 @@ import com.example.myprovider.data.PinProviderContract;
 
 public class SampleContentProvider extends ContentProvider {
 
+    private static int URI_MATCHER_ASSERTION_CODE = 10;
+
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-    static { sURIMatcher.addURI(PinProviderContract.AUTHORITY, PinProviderContract.PATH, 10); }
+    static { sURIMatcher.addURI(PinProviderContract.AUTHORITY, PinProviderContract.PATH, URI_MATCHER_ASSERTION_CODE); }
 
     @Override
     public boolean onCreate() {
@@ -22,7 +24,7 @@ public class SampleContentProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        if(sURIMatcher.match(uri) == 10){
+        if(sURIMatcher.match(uri) == URI_MATCHER_ASSERTION_CODE){
             AppDao dao = DatabaseClient.getInstance(getContext()).getAppDatabase().appDao();
             final Cursor cursor = dao.get();
             cursor.setNotificationUri(getContext().getContentResolver(), uri);
