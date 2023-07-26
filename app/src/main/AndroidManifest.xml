@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myprovider">
 
+    <permission android:name="com.example.myprovider.READ_PIN" />
+
     <application
-        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -13,8 +14,9 @@
             android:name=".provider.SampleContentProvider"
             android:authorities="com.example.myprovider.provider"
             android:exported="true"
-            />
-        <activity android:name=".MainActivity"
+            android:readPermission="com.example.myprovider.READ_PIN" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
