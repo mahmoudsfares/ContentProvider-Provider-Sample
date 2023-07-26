@@ -12,7 +12,7 @@ import com.example.myprovider.data.PinProviderContract;
 
 public class SampleContentProvider extends ContentProvider {
 
-    private static int URI_MATCHER_ASSERTION_CODE = 10;
+    private static final int URI_MATCHER_ASSERTION_CODE = 10;
 
     private static final UriMatcher sURIMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     static { sURIMatcher.addURI(PinProviderContract.AUTHORITY, PinProviderContract.PATH, URI_MATCHER_ASSERTION_CODE); }

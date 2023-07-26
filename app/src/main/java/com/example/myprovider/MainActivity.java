@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et;
+    private EditText et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
